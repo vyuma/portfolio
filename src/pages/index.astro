@@ -1,9 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import {timeLine} from '../data/timeline.ts';
-import TimeLineChip from '../components/TimeLineChip.astro';
+import TimeLine from '../components/TimeLine.astro';
 
-const pageTitle = "Home";
+const pageTitle = "TimeLine";
 
 
 
@@ -12,5 +11,5 @@ const pageTitle = "Home";
 
 ---
 <BaseLayout pageTitle={pageTitle}>
-
+    <TimeLine />
 </BaseLayout>
