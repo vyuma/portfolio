@@ -1,0 +1,45 @@
+---
+
+
+const test = {
+    id:6,
+        date: new Date(2024,7),
+        title:"学生アイディアファクトリー",
+        description:"学習のための心理学とAIと教育を合わせたアプリケーションを作成しました。",
+        urlDescription:["プロジェクト","発表スライド"],
+        url:["https://si-fa.net/report/report2024/","https://si-fa.net/report-elements/report2024/20240025.pdf"],
+        tags:["project","web"],
+        results:"サイエンスアゴラにてポスター発表と1分ピッチを行いました。"
+        }
+
+---
+
+<div class="tips">
+    <div class="header">
+        <div class="title">{test.title}</div>
+        <div class="date">{test.date.getFullYear()}/{test.date.getMonth()}</div>
+    </div>
+    <div class="container">
+        <div class="description">{test.description}</div>
+        <div>
+            {
+            test.urlDescription && test.url && (
+                test.urlDescription.map((urlDescription, index) => (
+                    <a href={test.url[index]}>{urlDescription}</a>
+                )
+            )
+            )
+            } 
+        </div>
+        {()=>{
+            if (test.results ===""){
+                return null;
+            }else{
+                return <div class="results">{test.results}</div>
+            }
+        }
+        }
+        </div>
+    </div>
+
+</div>
