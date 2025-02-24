@@ -9,7 +9,7 @@ interface TimeLine {
     results: string;
 }
 // 参加プログラムなど
-export const timeLine: TimeLine[] = [
+export const timeLines: TimeLine[] = [
     {
         id: 1,
         date: new Date(2023, 7),
