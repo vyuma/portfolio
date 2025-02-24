@@ -46,3 +46,10 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## Git Branch Rules
+
+- "master" branch is the main branch for the project. When you are git push master branch, it will be deployed to the production environment.
+- "develop" branch is the development branch for the project. When you are git push develop branch, it will be developed to the staging environment. You have to push your feature branch to the develop branch.
+- "feature" branch is the feature branch for the project. When you are git push feature branch, it will be developed to the development environment. You have to push your feature branch to the develop branch.
+
