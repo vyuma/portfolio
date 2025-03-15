@@ -69,6 +69,13 @@ html {
   .dark .nav-links a {
     color: #fff;
   }
+  .dark .social{
+    background-color:rgb(112, 66, 198);
+  }
+  .dark .social-link{
+    color: #fff;
+  }
+
   
   @media screen and (min-width: 636px) {
     .nav-links {

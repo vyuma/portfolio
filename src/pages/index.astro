@@ -1,8 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import TimeLine from '../components/TimeLine.astro';
 
-const pageTitle = "TimeLine";
+const pageTitle = "Home";
 
 
 
@@ -11,5 +10,57 @@ const pageTitle = "TimeLine";
 
 ---
 <BaseLayout pageTitle={pageTitle}>
-    <TimeLine />
+    <h1> Who am I ?</h1>
+    <div class="my-profile">
+        <h1 class="my-name">vyuma</h1>
+        <div class="my-occupation">
+            <ul>
+                <li>名大計算生物物理学研究室</li>
+                <li>AIエンジニア</li>
+            </ul>
+            <ul>
+                <li>データサイエンティスト</li>
+                <li>Webエンジニア</li>
+            </ul>
+        </div> 
+    </div>
+
+
+
 </BaseLayout>
+
+
+<style>
+    .my-profile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .my-name {
+        color: rgb(186, 111, 32);
+        font-size: 4rem;
+    }
+    .my-occupation {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .my-occupation ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        margin: 0;
+
+    }
+    .my-occupation li {
+        margin: 0.5rem;
+        font-size: 1.5rem;
+    }
+    .my-occupation li::before {
+        content: "👨‍💻";
+        margin-right: 0.5rem;
+    }
+
+</style>

@@ -2,11 +2,12 @@
 import TimeLineChip from "./TimeLineChip.astro";
 import {timeLines} from "../data/timeline.ts";
 
+const reversedTimeLines = timeLines.reverse();
 
 ---
 
 <ul>
-    {timeLines.map((timeLine, index) => (
+    {reversedTimeLines.map((timeLine, index) => (
         <li>
             <TimeLineChip 
                 id={index} 

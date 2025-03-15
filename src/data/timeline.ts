@@ -10,6 +10,18 @@ interface TimeLine {
 }
 // 参加プログラムなど
 export const timeLines: TimeLine[] = [
+    // {
+    //    id: 1,
+    //   date: new Date(2023, 7),
+    //    title: 'jackアイデアソン',
+    //    description: '曲のサビが次々流れてくるWebアプリケーションを作成しました。',
+    //    urlDescription:['url1_name', 'url2_name', 'url3_name'],
+    //    url: ['url1', 'url2', 'url3'],
+    //    tags: ['project', 'web', ],
+    //    results: ''
+    // }
+
+
     {
         id: 1,
         date: new Date(2023, 7),
@@ -25,7 +37,7 @@ export const timeLines: TimeLine[] = [
         date: new Date(2023, 10),
         title: 'JPHacks',
         description: 'タスクに追われがちなITエンジニアのために、ITエンジニアの働きすぎを感知して、働きすぎ度をAIによる判定を行うエージェントを独自実装したアプリケーションを作成しました。',
-        urlDescription:["githubリンク"],
+        urlDescription:["github"],
         url: ["https://github.com/jphacks/NG_2309"],
         tags: ['project', 'web', 'AI'],
         results: 'HackDay BFTスポンサー賞をいただきました。'
@@ -65,7 +77,7 @@ export const timeLines: TimeLine[] = [
         date: new Date(2024,7),
         title:"学生アイディアファクトリー",
         description:"学習のための心理学とAIと教育を合わせたアプリケーションを作成しました。",
-        urlDescription:["プロジェクト","発表スライド"],
+        urlDescription:["プロジェクト","発表ポスター"],
         url:["https://si-fa.net/report/report2024/","https://si-fa.net/report-elements/report2024/20240025.pdf"],
         tags:["project","web"],
         results:"サイエンスアゴラにてポスター発表と1分ピッチを行いました。"
@@ -128,7 +140,7 @@ export const timeLines: TimeLine[] = [
         urlDescription:["ハッカソン概要","GitHub"],
         url:["https://www.nagoyatv.com/hackathon-electricsheep/","https://github.com/Shakenokirimi12/mobility-adventure"],
         tags:["hackson","web"],
-        results:"優勝・プログラミング賞同時受賞"
+        results:"優勝・プログラミング賞同時受賞 SFプロトタイピング日本一の称号をいただきました！"
     },
     {
         id:13,
@@ -204,10 +216,20 @@ export const timeLines: TimeLine[] = [
         id:20,
         date: new Date(2024,2),
         title:"広島にて理論生物学春の学校に参加しました",
-        description:"理論生物学とAIの関係モデルの関係について考えるきっかけになりました",
+        description:"理論生物学とAIの関係モデルの関係について考えるきっかけになりました。",
         urlDescription:["プロジェクト"],
         url:["https://sites.google.com/view/sstb2025"],
         tags: ["project","web"],
         results: ""
+    },
+    {
+        id:21,
+        date: new Date(2024,2),
+        title:"AVILEN一週間のインターンに参加しました",
+        description:"AVILENのインターンに参加し、AIとビジネスについて学びました。一週間のコンサルタントとしての仕事経験からAIとビジネスやサービスの社会実装について考えるきっかけになりました。",
+        urlDescription:["会社概要"],
+        url:["https://avilen.jp/"],
+        tags: ["インターン"],
+        results: "個人賞をいただきました"
     }
 ]

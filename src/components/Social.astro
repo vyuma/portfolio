@@ -1,13 +1,54 @@
 ---
+import { Picture } from "astro:assets";
+import facebook from "../assets/facebook.png";
+import github from "../assets/github.png";
+
 const { platform, username } = Astro.props;
+
+
+
 ---
-<a href={`https://www.${platform}.com/${username}`}>{platform}</a>
+
+
+<div class="social">
+  <a class="social-link" href={`https://www.${platform}.com/${username}`}>
+  {
+    platform === "facebook" && (
+      <Picture src={facebook} alt="facebook" width="20" height="20" />
+    )
+  }
+  {
+    platform === "github" && (
+      <Picture src={github} alt="github" width="20" height="20" />
+    )
+  }
+  <div class="platform-name">
+    {platform}
+  </div>
+  </a>
+</div>
+
+
 
 <style>
-    a {
+    .social {
       padding: 0.5rem 1rem;
-      color: white;
-      background-color: #4c1d95;
+      color: rgb(255, 255, 255);
+      background-color: #ffffff;
       text-decoration: none;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      /* boxに影をつける */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      /*  */
     }
-  </style>
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: rgb(18, 18, 18);
+    }
+    
+</style>
