@@ -1,4 +1,9 @@
 ---
+// Imageコンポーネントと画像をインポートする
+import { Image } from 'astro:assets';
+import cracker from '../assets/cracker.svg';
+import { Picture } from 'astro:assets';
+
 export type Props = {
     id: number;
     date: Date;
@@ -8,8 +13,6 @@ export type Props = {
     url: string[];
     results: string;
 }
-
-
 const {id,date,title, description, urlDescription, url, results} = Astro.props 
 
 ---
@@ -35,7 +38,15 @@ const {id,date,title, description, urlDescription, url, results} = Astro.props
             if (results ===""){
                 return null;
             }else{
-                return <div class="results">{results}</div>
+                return (
+                    <div class="results">
+                        <div>
+                            <Picture src={cracker} alt="cracker" width="70" height="70" />
+                        </div>
+                        <div class="result-text">{results}</div>
+                    </div>
+                
+            )
             }
         }
         }
@@ -74,12 +85,23 @@ const {id,date,title, description, urlDescription, url, results} = Astro.props
     .results {
         margin-top: 1rem;
         padding: 1rem;
-        background-color: #acf0ffeb;
+        background-color: #0f0357;
         border-radius: 5px;
-        color: #e3926a;
+        color: #ffd700;
         text-align: center;
         font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
+    .result-text{
+        /* センタリングする */
+        display: flex;
+        justify-content: center;  /* 横方向の中央揃え */
+        align-items: center;      /* 縦方向の中央揃え */
+        width: 100%;              /* 必要なら幅を指定 */
+    }
+
     .urls{
         display: flex;
         flex-direction: row;
