@@ -1,41 +1,52 @@
 ---
+// Imageコンポーネントと画像をインポートする
+import { Image } from 'astro:assets';
+import cracker from '../assets/cracker.svg';
+import { Picture } from 'astro:assets';
 
-
-const test = {
-    id:6,
-        date: new Date(2024,7),
-        title:"学生アイディアファクトリー",
-        description:"学習のための心理学とAIと教育を合わせたアプリケーションを作成しました。",
-        urlDescription:["プロジェクト","発表スライド"],
-        url:["https://si-fa.net/report/report2024/","https://si-fa.net/report-elements/report2024/20240025.pdf"],
-        tags:["project","web"],
-        results:"サイエンスアゴラにてポスター発表と1分ピッチを行いました。"
-        }
+export type Props = {
+    id: number;
+    date: Date;
+    title: string;
+    description: string;
+    urlDescription: string[];
+    url: string[];
+    results: string;
+}
+const {id,date,title, description, urlDescription, url, results} = Astro.props 
 
 ---
 
 <div class="tips">
     <div class="header">
-        <div class="title">{test.title}</div>
-        <div class="date">{test.date.getFullYear()}/{test.date.getMonth()}</div>
+        <div class="title">{title}</div>
+        <div class="date">{date.getFullYear()}/{date.getMonth()}</div>
     </div>
     <div class="container">
-        <div class="description">{test.description}</div>
-        <div>
+        <div class="description">{description}</div>
+        <div class="urls">
             {
-            test.urlDescription && test.url && (
-                test.urlDescription.map((urlDescription, index) => (
-                    <a href={test.url[index]}>{urlDescription}</a>
+            urlDescription && url && (
+                urlDescription.map((urlDescription, index) => (
+                    <div class="url-chip"><a href={url[index]}>{urlDescription}</a></div>
                 )
             )
             )
             } 
         </div>
         {()=>{
-            if (test.results ===""){
+            if (results ===""){
                 return null;
             }else{
-                return <div class="results">{test.results}</div>
+                return (
+                    <div class="results">
+                        <div>
+                            <Picture src={cracker} alt="cracker" width="70" height="70" />
+                        </div>
+                        <div class="result-text">{results}</div>
+                    </div>
+                
+            )
             }
         }
         }
@@ -43,3 +54,80 @@ const test = {
     </div>
 
 </div>
+
+<style>
+    .tips {
+        border: 1px solid #cfe1ffd6;
+        border-radius: 20px;
+        background-color: #b1d6ff6c;
+        padding: 1rem;
+    }
+    .header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+    .title {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    .date {
+        font-size: 1rem;
+        color: #666;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    .description {
+        margin-bottom: 1rem;
+    }
+    .results {
+        margin-top: 1rem;
+        padding: 1rem;
+        background-color: #0f0357;
+        border-radius: 5px;
+        color: #ffd700;
+        text-align: center;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .result-text{
+        /* センタリングする */
+        display: flex;
+        justify-content: center;  /* 横方向の中央揃え */
+        align-items: center;      /* 縦方向の中央揃え */
+        width: 100%;              /* 必要なら幅を指定 */
+    }
+
+    .urls{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        
+    }
+    .url-chip{
+        border: 1px solid #1b52d4d6;
+        background-color: #2f89f1;
+        border-radius: 10px;
+        margin-right: 1rem;
+    }
+    .url-chip:hover{
+        background-color: #1b52d4d6;
+    }
+    a {
+        color: #e7e7e7;
+        text-decoration: none;
+        margin-right: 1rem;
+        display: flex;
+        justify-content: center;  /* 横方向の中央揃え */
+        align-items: center;      /* 縦方向の中央揃え */
+        width: 100%;              /* 必要なら幅を指定 */
+        padding:0.25rem
+    }
+    a:hover {
+        text-decoration: none;
+    }
+</style>

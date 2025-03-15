@@ -1,0 +1,37 @@
+---
+import TimeLineChip from "./TimeLineChip.astro";
+import {timeLines} from "../data/timeline.ts";
+
+const reversedTimeLines = timeLines.reverse();
+
+---
+
+<ul>
+    {reversedTimeLines.map((timeLine, index) => (
+        <li>
+            <TimeLineChip 
+                id={index} 
+                date={timeLine.date} 
+                title={timeLine.title} 
+                description={timeLine.description} 
+                urlDescription={timeLine.urlDescription} 
+                url={timeLine.url} 
+                results={timeLine.results}  
+            />
+        </li>
+    ))}
+</ul>
+
+<style>
+    ul {
+        list-style-type: none;
+        padding: 0;
+        flex: content;
+        flex-direction: column;
+        align-items: center;
+    }
+    li {
+        list-style-type: none;
+        margin-bottom: 1rem;
+    }
+</style>

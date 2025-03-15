@@ -3,20 +3,32 @@ interface TimeLine {
     date: Date;
     title: string;
     description: string;
-    urlDescription: string[] | null;
-    url: string[] | null;
+    urlDescription: string[];
+    url: string[] ;
     tags: string[];
     results: string;
 }
 // 参加プログラムなど
-export const timeLine: TimeLine[] = [
+export const timeLines: TimeLine[] = [
+    // {
+    //    id: 1,
+    //   date: new Date(2023, 7),
+    //    title: 'jackアイデアソン',
+    //    description: '曲のサビが次々流れてくるWebアプリケーションを作成しました。',
+    //    urlDescription:['url1_name', 'url2_name', 'url3_name'],
+    //    url: ['url1', 'url2', 'url3'],
+    //    tags: ['project', 'web', ],
+    //    results: ''
+    // }
+
+
     {
         id: 1,
         date: new Date(2023, 7),
         title: ' jackアイデアソン',
         description: '曲のサビが次々流れてくるWebアプリケーションを作成しました。',
-        urlDescription:null,
-        url: null,
+        urlDescription:[],
+        url: [],
         tags: ['project', 'web', ],
         results: ''
     },
@@ -25,17 +37,17 @@ export const timeLine: TimeLine[] = [
         date: new Date(2023, 10),
         title: 'JPHacks',
         description: 'タスクに追われがちなITエンジニアのために、ITエンジニアの働きすぎを感知して、働きすぎ度をAIによる判定を行うエージェントを独自実装したアプリケーションを作成しました。',
-        urlDescription:["githubリンク"],
+        urlDescription:["github"],
         url: ["https://github.com/jphacks/NG_2309"],
         tags: ['project', 'web', 'AI'],
-        results: 'HackDay BFTスポンサー賞'
+        results: 'HackDay BFTスポンサー賞をいただきました。'
     },
     {
         id: 3,
         date: new Date(2024,2),
         title: '100program(第6期)',
         description: '100人で100時間100個のアイデアとプロダクトを作成するプログラムに参加しました。',
-        urlDescription:["プロジェクト詳細",""],
+        urlDescription:["プロジェクト詳細"],
         url: ['https://100program.jp/'],
         tags: ['project', 'web'],
         results: "「学習アプリ〜教えて育てるポンコツAI受験生〜」と「習慣化促進のための時間記録デバイスと視覚化アプリケーション」を作成し最終発表でファイナリストに選出されました。"
@@ -65,7 +77,7 @@ export const timeLine: TimeLine[] = [
         date: new Date(2024,7),
         title:"学生アイディアファクトリー",
         description:"学習のための心理学とAIと教育を合わせたアプリケーションを作成しました。",
-        urlDescription:["プロジェクト","発表スライド"],
+        urlDescription:["プロジェクト","発表ポスター"],
         url:["https://si-fa.net/report/report2024/","https://si-fa.net/report-elements/report2024/20240025.pdf"],
         tags:["project","web"],
         results:"サイエンスアゴラにてポスター発表と1分ピッチを行いました。"
@@ -95,18 +107,18 @@ export const timeLine: TimeLine[] = [
         date: new Date(2024,8),
         title:"100program 第6期に参加しました",
         description:"100人で100時間100個のアイデアとプロダクトを作成するプログラムに参加しました。",
-        urlDescription:["プロジェクト詳細",""],
+        urlDescription:["プロジェクト詳細"],
         url: ['https://100program.jp/'],
         tags: ['project', 'web'],
-        results: "",
+        results: "「学習を支援する心理学アプリケーションの実装を行いました」",
     },
     {
         id:10,
         date:new Date(2024,8),
         title:"全国自主ゼミ合宿の企画・運営・ホスト代表を行いました。",
         description:"全国の自主ゼミの代表者が集まり、合宿を行いました。",
-        urlDescription:null,
-        url: null,
+        urlDescription:[],
+        url: [],
         tags: ['project', 'web'],
         results: "",
     },
@@ -128,7 +140,7 @@ export const timeLine: TimeLine[] = [
         urlDescription:["ハッカソン概要","GitHub"],
         url:["https://www.nagoyatv.com/hackathon-electricsheep/","https://github.com/Shakenokirimi12/mobility-adventure"],
         tags:["hackson","web"],
-        results:"優勝・プログラミング賞同時受賞"
+        results:"優勝・プログラミング賞同時受賞 SFプロトタイピング日本一の称号をいただきました！"
     },
     {
         id:13,
@@ -148,27 +160,27 @@ export const timeLine: TimeLine[] = [
         urlDescription:["講座"],
         url:["https://weblab.t.u-tokyo.ac.jp/lecture/course-list/deep-generative-model/"],
         tags: ["learning","AI"],
-        results:""
+        results:"修了しました"
     },
     {
         id:15,
         date: new Date(2024,10),
         title:"Pop up Ideathon",
         description:"ハグをすることにより情報交換するデバイスのアイディアを出しました。",
-        urlDescription:null,
-        url: null,
+        urlDescription:["イベント"],
+        url: ["https://garage-nagoya.or.jp/event/p20101/"],
         tags: ["project","ideason"],
-        results: ""
+        results: "ガレージ賞をいただきました"
     },
     {
         id:16,
         date: new Date(2024,12),
         title:"NAGOYA HACK",
         description:"名古屋イノベーターズガレージで行ったハッカソンに出場し人に話しかけやすくなるデバイスを作りました",
-        urlDescription:null,
-        url: null,
+        urlDescription:["イベント"],
+        url: ["https://garage-challengers-platform.my.canva.site/hack-the-nagoya-hp"],
         tags: ["hackson","web"],
-        results: "準優勝"
+        results: "準優勝しました"
     },
     {
         id:17,
@@ -188,15 +200,15 @@ export const timeLine: TimeLine[] = [
         urlDescription:["イベント","GitHub"],
         url:["https://hacku.yahoo.co.jp/hacku2025_nagoya/","https://github.com/vyuma/physiquest_animation_generator"],
         tags: ["hackson","web"],
-        results: "最優秀賞・happyhacking賞"
+        results: "最優秀賞・happyhacking賞をいただきました"
     },
     {
         id:19,
         date: new Date(2024,2),
         title:"全国自主ゼミ合宿に参加",
         description:"東北仙台にて全国の自主ゼミの代表者が集まった合宿を行いました。",
-        urlDescription:null,
-        url: null,
+        urlDescription:[],
+        url: [],
         tags: ["project"],
         results: ""
     },
@@ -204,10 +216,20 @@ export const timeLine: TimeLine[] = [
         id:20,
         date: new Date(2024,2),
         title:"広島にて理論生物学春の学校に参加しました",
-        description:"理論生物学とAIの関係モデルの関係について考えるきっかけになりました",
+        description:"理論生物学とAIの関係モデルの関係について考えるきっかけになりました。",
         urlDescription:["プロジェクト"],
         url:["https://sites.google.com/view/sstb2025"],
         tags: ["project","web"],
         results: ""
+    },
+    {
+        id:21,
+        date: new Date(2024,2),
+        title:"AVILEN一週間のインターンに参加しました",
+        description:"AVILENのインターンに参加し、AIとビジネスについて学びました。一週間のコンサルタントとしての仕事経験からAIとビジネスやサービスの社会実装について考えるきっかけになりました。",
+        urlDescription:["会社概要"],
+        url:["https://avilen.jp/"],
+        tags: ["インターン"],
+        results: "個人賞をいただきました"
     }
 ]
