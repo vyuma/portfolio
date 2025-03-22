@@ -231,5 +231,25 @@ export const timeLines: TimeLine[] = [
         url:["https://avilen.jp/"],
         tags: ["インターン"],
         results: "個人賞をいただきました"
+    },
+    {
+        id:22,
+        date: new Date(2024,3),
+        title:"コヨーテAI大会を実行委員長として開催します!",
+        description:"コヨーテのAIコンペティションをjackとC0deが共催して行います!",
+        urlDescription:["プロジェクト",],
+        url:["https://coyote-ai-competition.connpass.com/event/349790/ "],
+        tags: ["project","web","AI"],
+        results: ""
+    },
+    {
+        id:23,
+        date: new Date(2024,3),
+        title:"Hack with AIに参加しました！",
+        description:"3/22に名大イデアストアで行われたAIを効果的に使うためのアプリケーションを作成しました。",
+        urlDescription:[],
+        url:[],
+        tags: ["project","web","AI"],
+        results: "優秀賞をいただきました！！"
     }
 ]
