@@ -251,5 +251,15 @@ export const timeLines: TimeLine[] = [
         url:[],
         tags: ["project","web","AI"],
         results: "優秀賞をいただきました！！"
-    }
+    },
+    {
+        id:24,
+        date: new Date(2024,3),
+        title:"100program 第7期に参加しました",
+        description:"100人で100時間100個のアイデアとプロダクトを作成するプログラムに参加しました。",
+        urlDescription:["プロジェクト詳細"],
+        url: ['https://100program.jp/'],
+        tags: ['project', 'web'],
+        results: "「ハッカソン支援エージェント」を作成し「優秀AI賞」をいただきました!!",
+    },
 ]
