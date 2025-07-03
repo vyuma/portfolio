@@ -224,7 +224,7 @@ export const timeLines: TimeLine[] = [
     },
     {
         id:21,
-        date: new Date(2024,2),
+        date: new Date(2024,3),
         title:"AVILEN一週間のインターンに参加しました",
         description:"AVILENのインターンに参加し、AIとビジネスについて学びました。一週間のコンサルタントとしての仕事経験からAIとビジネスやサービスの社会実装について考えるきっかけになりました。",
         urlDescription:["会社概要"],
@@ -235,21 +235,91 @@ export const timeLines: TimeLine[] = [
     {
         id:22,
         date: new Date(2024,3),
-        title:"コヨーテAI大会を実行委員長として開催します!",
-        description:"コヨーテのAIコンペティションをjackとC0deが共催して行います!",
-        urlDescription:["プロジェクト",],
-        url:["https://coyote-ai-competition.connpass.com/event/349790/ "],
-        tags: ["project","web","AI"],
-        results: ""
+        title:"Hack with AI に参加しました",
+        description:"AIを活用したプロダクト開発のハッカソンに参加しました。",
+        urlDescription:["イベント"],
+        url:["https://ed-fusion.jp/hack-with-ai-20250323"],
+        tags: ["hackson","web"],
+        results:"優秀AI賞をいただきました",
     },
     {
         id:23,
         date: new Date(2024,3),
-        title:"Hack with AIに参加しました！",
-        description:"3/22に名大イデアストアで行われたAIを効果的に使うためのアプリケーションを作成しました。",
+        title:"100program 第7期に参加しました",
+        description:"100人で100時間100個のアイデアとプロダクトを作成するプログラムに参加しました。通算3回目の参加です。今回はハッカソンを支援するアプリケーションを作りました。",
+        urlDescription:["プロジェクト詳細"],
+        url: ['https://100program.jp/'],
+        tags: ['project', 'web'],
+        results: "100program第7期にて優秀AI賞をいただきました!",
+    },
+    {
+        id:24,
+        date: new Date(2024,4),
+        title:"技育博vol1に招待されました",
+        description:"技育博にて、ハッカソン支援エージェントのプロダクトを展示しました。",
+        urlDescription:["イベント","ハッカソン支援エージェント"],
+        url:["https://note.supporterz.jp/n/n64ddd0708b48","https://hackson-support-agent.vercel.app/"],
+        tags: ["project","web"],
+        results: "WIngArc1st企業賞を受賞しました！",
+    },
+    {
+        id:25,
+        date: new Date(2024,5),
+        title:"jack Hackに出場しました",
+        description:"jack Hackにてアプリケーション作成をおないました。リーダーとして新入生チームでハッカソンをしました。",
         urlDescription:[],
-        url:[],
-        tags: ["project","web","AI"],
-        results: "優秀賞をいただきました！！"
+        url: [],
+        tags: ["hackson","web"],
+        results:""
+    },
+    {
+        id:26,
+        date: new Date(2024,6),
+        title:" Hack1グランプリに出場しました",
+        description:"Hack1グランプリにて、MR StudyというMRを活用した学習支援アプリケーションを作成しました。",
+        urlDescription:["イベント","YouTube","発表動画"],
+        url:["https://hack-1.com/","https://m.youtube.com/watch?v=b6VQR6zCKSw&t=4919s","https://youtu.be/CABc6CY4Op0"],
+        tags: ["hackson","web"],
+        results:"「日テレ賞」を受賞しました。"
+    },
+    {
+        id:27,
+        date: new Date(2024,6),
+        title:"コヨーテAI大会 cAcに出場しました",
+        description:"コヨーテAI大会 cAcにて、強化学習を用いたコヨーテAIを作成しました",
+        urlDescription:["イベント"],
+        url:["https://coyote-ai-competition.connpass.com/event/349790/"],
+        tags: ["hackson","AI"],
+        results:"総当たり部門優勝しました！"
+    },
+    {
+        id:28,
+        date: new Date(2024,6),
+        title:"PHACSHAテクノロジーのAIエージェントハッカソンに出場しました！",
+        description:"PHACSHAテクノロジーのAIエージェントハッカソンに出場し、AIエージェントの可能性を探求しました。",
+        urlDescription:["イベント"],
+        url:["https://www.craftstadium.com/hackathon/pksha-hackathon2025-a"],
+        tags: ["hackson","AI"],
+        results:""
+    },
+    {
+        id:29,
+        date: new Date(2024,6),
+        title:" Tongaliビジネスプランコンテストで決勝戦・準決勝に進出しました！",
+        description:"Tongaliビジネスプランコンテストで、AIを活用したビジネスプランを提案し、決勝戦・準決勝に進出しました。",
+        urlDescription:["イベント"],
+        url:["https://tongali.com/contest2025/"],
+        tags: ["コンテスト","AI"],
+        results:"決勝戦・準決勝に進出しました！「SMBC日興証券賞」をいただきました！"
+    },
+    {
+        id:30,
+        date: new Date(2024,8),
+        title:"100programのアラムナイメンターになりました。",
+        description:"100programのアラムナイメンターとして、後輩のサポートを行っています。",
+        urlDescription:["100program"],
+        url: ["https://100program.jp/"],
+        tags: ["project","web"],
+        results: "後輩のサポートを行っています。"
     }
 ]
