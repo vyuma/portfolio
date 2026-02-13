@@ -1,0 +1,38 @@
+---
+import Counter from './Counter.jsx';
+
+interface Props {
+  target: number;
+  label: string;
+  suffix?: string;
+}
+
+const { target, label, suffix = '' } = Astro.props;
+---
+<div class="stat-counter">
+  <div class="stat-number">
+    <Counter client:visible target={target} suffix={suffix} />
+  </div>
+  <div class="stat-label">{label}</div>
+</div>
+
+<style>
+  .stat-counter {
+    text-align: center;
+    padding: var(--space-lg);
+  }
+
+  .stat-number {
+    font-size: var(--text-2xl);
+    font-weight: 800;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: var(--space-xs);
+  }
+
+  .stat-label {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+</style>

@@ -3,10 +3,47 @@ import Navigation from './Navigation.astro';
 import Hamburger from './Hamburger.astro';
 import ThemeIcon from './ThemeIcon.astro';
 ---
-<header>
-  <nav>
+<header class="site-header">
+  <nav class="site-nav">
+    <a href="/" class="logo">vyuma</a>
     <Hamburger />
-    <ThemeIcon />
     <Navigation />
+    <ThemeIcon />
   </nav>
 </header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--color-bg);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    transition: background-color 0.3s;
+  }
+
+  :global(html.dark) .site-header {
+    background-color: rgba(10, 10, 26, 0.85);
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0.75rem var(--space-md);
+  }
+
+  .logo {
+    font-size: var(--text-lg);
+    font-weight: 800;
+    color: var(--color-accent);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+
+  .logo:hover {
+    color: var(--color-accent-hover);
+  }
+</style>

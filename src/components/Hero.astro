@@ -1,0 +1,163 @@
+---
+import { profile } from '../data/profile';
+import StatsBar from './StatsBar.astro';
+---
+<section class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-name">{profile.name}</h1>
+    <div class="hero-badges">
+      {profile.badges.map(badge => (
+        <span class="badge">{badge}</span>
+      ))}
+    </div>
+    <p class="hero-affiliation">{profile.affiliation} / {profile.lab}</p>
+    <div class="hero-roles">
+      {profile.roles.map(role => (
+        <span class="role-tag">{role}</span>
+      ))}
+    </div>
+    <p class="hero-bio">{profile.bio}</p>
+    <div class="hero-cta">
+      <a href="/achievements" class="btn btn-primary">実績を見る</a>
+      <a href="/products" class="btn btn-outline">プロダクト</a>
+    </div>
+  </div>
+  <StatsBar />
+</section>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: var(--space-3xl) var(--space-md);
+    background: linear-gradient(135deg, rgba(47, 137, 241, 0.05) 0%, rgba(255, 151, 118, 0.08) 100%);
+  }
+
+  :global(html.dark) .hero {
+    background: linear-gradient(135deg, rgba(47, 137, 241, 0.1) 0%, rgba(255, 151, 118, 0.06) 100%);
+  }
+
+  .hero-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .hero-name {
+    font-size: var(--text-hero);
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: var(--space-sm) 0 var(--space-sm);
+    letter-spacing: -0.03em;
+  }
+
+  .hero-badges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 14px;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  .badge:nth-child(1) {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: #fff;
+  }
+
+  .badge:nth-child(2) {
+    background: linear-gradient(135deg, #1e3a5f, #2d5a8e);
+    color: #fff;
+  }
+
+  .badge:nth-child(3) {
+    background: linear-gradient(135deg, #ef4444, #7c3aed, #3b82f6);
+    color: #fff;
+  }
+
+  .hero-affiliation {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    margin: 0 0 var(--space-md);
+  }
+
+  .hero-roles {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .role-tag {
+    padding: var(--space-xs) var(--space-md);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .hero-bio {
+    max-width: 600px;
+    margin: 0 auto var(--space-xl);
+    color: var(--color-text-muted);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+  }
+
+  .hero-cta {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: var(--text-base);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-accent-hover);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn-outline {
+    border: 2px solid var(--color-border);
+    color: var(--color-text);
+    background: var(--color-surface);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    transform: translateY(-1px);
+  }
+</style>

@@ -1,0 +1,136 @@
+---
+import AwardBadge from './AwardBadge.astro';
+import type { Product } from '../data/products';
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+---
+<div class="product-card">
+  <div class="product-header">
+    <h3 class="product-name">{product.name}</h3>
+    {product.awards.length > 0 && (
+      <div class="product-awards">
+        {product.awards.map(award => (
+          <AwardBadge text={award} />
+        ))}
+      </div>
+    )}
+  </div>
+  <p class="product-desc">{product.description}</p>
+  <div class="product-tags">
+    {product.tags.map(tag => (
+      <span class="product-tag">{tag}</span>
+    ))}
+  </div>
+  {(product.githubUrl || product.demoUrl) && (
+    <div class="product-links">
+      {product.githubUrl && (
+        <a href={product.githubUrl} target="_blank" rel="noopener noreferrer" class="product-link">
+          GitHub
+        </a>
+      )}
+      {product.demoUrl && (
+        <a href={product.demoUrl} target="_blank" rel="noopener noreferrer" class="product-link product-link-demo">
+          Demo
+        </a>
+      )}
+    </div>
+  )}
+</div>
+
+<style>
+  .product-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .product-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .product-name {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .product-awards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .product-desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: var(--leading-normal);
+    flex: 1;
+  }
+
+  .product-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .product-tag {
+    padding: 2px 10px;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .product-links {
+    display: flex;
+    gap: var(--space-sm);
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .product-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+    padding: var(--space-xs) var(--space-md);
+    background-color: var(--color-primary);
+    color: #fff;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s;
+  }
+
+  .product-link:hover {
+    background-color: var(--color-primary-hover);
+    color: #fff;
+  }
+
+  .product-link-demo {
+    background-color: var(--color-accent);
+  }
+
+  .product-link-demo:hover {
+    background-color: var(--color-accent-hover);
+  }
+</style>

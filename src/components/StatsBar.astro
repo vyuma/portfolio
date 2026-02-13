@@ -1,0 +1,50 @@
+---
+import StatCounter from './StatCounter.astro';
+import { profile } from '../data/profile';
+---
+<div class="stats-bar">
+  <div class="stats-inner">
+    <StatCounter target={profile.stats.hackathonWins} label="ハッカソン優勝" suffix="+" />
+    <div class="stats-divider"></div>
+    <StatCounter target={profile.stats.totalAwards} label="受賞" suffix="+" />
+    <div class="stats-divider"></div>
+    <StatCounter target={profile.stats.products} label="プロダクト" suffix="+" />
+  </div>
+</div>
+
+<style>
+  .stats-bar {
+    margin-top: var(--space-2xl);
+  }
+
+  .stats-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-md) var(--space-xl);
+    box-shadow: var(--shadow-md);
+  }
+
+  .stats-divider {
+    width: 1px;
+    height: 3rem;
+    background-color: var(--color-border);
+  }
+
+  @media (max-width: 480px) {
+    .stats-inner {
+      flex-direction: column;
+      padding: var(--space-md);
+    }
+
+    .stats-divider {
+      width: 60%;
+      height: 1px;
+    }
+  }
+</style>
