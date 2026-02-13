@@ -11,9 +11,9 @@ export const careers: CareerEntry[] = [
   // ===== Education =====
   {
     startDate: new Date(2022, 3),
-    title: '名古屋大学 情報学部 入学',
+    title: '名古屋大学 理学部物理学科 入学',
     organization: '名古屋大学',
-    description: '情報学部コンピュータ科学科に入学。教職課程も同時に履修開始。',
+    description: '理学部物理学科に入学。教職課程も同時に履修開始。',
     category: 'education',
   },
   {

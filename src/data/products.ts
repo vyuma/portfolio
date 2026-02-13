@@ -35,7 +35,7 @@ export const products: Product[] = [
   },
   {
     name: 'ねむりチャット',
-    description: '睡眠の質を向上させるためのAIチャットアプリケーション。就寝前のリラックスした会話を通じて入眠をサポート。v1, v2を開発。',
+    description: 'jack Hackで作成したねむりちゃんと話せるアプリケーション。チャットシステムで会話できるv1, チャットと音声認識の二つで会話できるv2を開発。',
     tags: ['AI', 'Healthcare', 'Chat'],
     awards: [],
   },

@@ -14,8 +14,8 @@ export const achievements: Achievement[] = [
   {
     id: 101,
     date: new Date(2022, 3),
-    title: '名古屋大学 情報学部 入学',
-    description: '名古屋大学情報学部コンピュータ科学科に入学しました。教職課程も同時に履修開始。',
+    title: '名古屋大学 理学部 入学',
+    description: '名古屋大学理学部に入学しました。教職課程も同時に履修開始。',
     urlDescription: [],
     url: [],
     tags: ['education'],
