@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+---
+<BaseLayout pageTitle="Products - vyuma" fullWidth>
+  <PageHero title="Products" subtitle="開発プロダクト" />
+  <div class="container">
+    <ProductGrid />
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md) var(--space-3xl);
+  }
+</style>

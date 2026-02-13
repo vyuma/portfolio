@@ -268,58 +268,18 @@ export const timeLines: TimeLine[] = [
         title:"jack Hackに出場しました",
         description:"jack Hackにてアプリケーション作成をおないました。リーダーとして新入生チームでハッカソンをしました。",
         urlDescription:[],
-        url: [],
-        tags: ["hackson","web"],
-        results:""
+        url:[],
+        tags: ["project","web","AI"],
+        results: "優秀賞をいただきました！！"
     },
     {
-        id:26,
-        date: new Date(2024,6),
-        title:" Hack1グランプリに出場しました",
-        description:"Hack1グランプリにて、MR StudyというMRを活用した学習支援アプリケーションを作成しました。",
-        urlDescription:["イベント","YouTube","発表動画"],
-        url:["https://hack-1.com/","https://m.youtube.com/watch?v=b6VQR6zCKSw&t=4919s","https://youtu.be/CABc6CY4Op0"],
-        tags: ["hackson","web"],
-        results:"「日テレ賞」を受賞しました。"
+        id:24,
+        date: new Date(2024,3),
+        title:"100program 第7期に参加しました",
+        description:"100人で100時間100個のアイデアとプロダクトを作成するプログラムに参加しました。",
+        urlDescription:["プロジェクト詳細"],
+        url: ['https://100program.jp/'],
+        tags: ['project', 'web'],
+        results: "「ハッカソン支援エージェント」を作成し「優秀AI賞」をいただきました!!",
     },
-    {
-        id:27,
-        date: new Date(2024,6),
-        title:"コヨーテAI大会 cAcに出場しました",
-        description:"コヨーテAI大会 cAcにて、強化学習を用いたコヨーテAIを作成しました",
-        urlDescription:["イベント"],
-        url:["https://coyote-ai-competition.connpass.com/event/349790/"],
-        tags: ["hackson","AI"],
-        results:"総当たり部門優勝しました！"
-    },
-    {
-        id:28,
-        date: new Date(2024,6),
-        title:"PHACSHAテクノロジーのAIエージェントハッカソンに出場しました！",
-        description:"PHACSHAテクノロジーのAIエージェントハッカソンに出場し、AIエージェントの可能性を探求しました。",
-        urlDescription:["イベント"],
-        url:["https://www.craftstadium.com/hackathon/pksha-hackathon2025-a"],
-        tags: ["hackson","AI"],
-        results:""
-    },
-    {
-        id:29,
-        date: new Date(2024,6),
-        title:" Tongaliビジネスプランコンテストで決勝戦・準決勝に進出しました！",
-        description:"Tongaliビジネスプランコンテストで、AIを活用したビジネスプランを提案し、決勝戦・準決勝に進出しました。",
-        urlDescription:["イベント"],
-        url:["https://tongali.com/contest2025/"],
-        tags: ["コンテスト","AI"],
-        results:"決勝戦・準決勝に進出しました！「SMBC日興証券賞」をいただきました！"
-    },
-    {
-        id:30,
-        date: new Date(2024,8),
-        title:"100programのアラムナイメンターになりました。",
-        description:"100programのアラムナイメンターとして、後輩のサポートを行っています。",
-        urlDescription:["100program"],
-        url: ["https://100program.jp/"],
-        tags: ["project","web"],
-        results: "後輩のサポートを行っています。"
-    }
 ]

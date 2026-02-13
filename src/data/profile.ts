@@ -1,0 +1,43 @@
+export const profile = {
+  name: 'vyuma',
+  nameOrigin: 'boudayuuma → yadu + ya → yaduya → やづや',
+  affiliation: '名古屋大学 医学系研究科',
+  lab: '計算生物物理学研究室',
+  roles: [
+    'AIエンジニア',
+    'Webエンジニア',
+    'データサイエンティスト',
+  ],
+  badges: ['Gemini公式学生アンバサダー', 'JPHACKS innovator', '100program メンター'],
+  bio: '読書500冊以上。ゲーミフィケーションとAIを組み合わせた開発が得意。ハッカソンでの優勝経験多数。学術サーバー・全国自主ゼミサークルの創設者。機械学習分野で実務経験あり。',
+  interests: [
+    '機械学習', '人工知能', '哲学', '教育理論', '勉強法',
+    'ベイズ統計学', '心理学（ゲーミフィケーション・モチベーション理論）',
+    '脳科学（ベイズ脳理論）', '競技プログラミング', 'システムアーキテクチャ',
+    '生成AI', 'データサイエンス', 'データマイニング', '数理モデル', '情報理論',
+  ],
+  organizations: [
+    'jack（名大アプリ開発団体）',
+    'TAIR（東海人工知能勉強会）',
+    'MeltingHack ハッカソンコミュニティ',
+    '名大学術サーバー（自主ゼミサークル）',
+    '全国自主ゼミサークルの会',
+    '学生団体BEAST',
+    'SuperVeX（学生アイディアファクトリー学生団体）',
+    'Physiquest 物理学教育Webサイト',
+    '100program アラムナイメンター',
+    'Glow Tech Nagoya アラムナイ',
+    'JPHACKS innovator / JPHACKsコミュニティ',
+    'GDGoCハッカソン',
+    'Airport（OICX）',
+  ],
+  stats: {
+    hackathonWins: 5,
+    totalAwards: 35,
+    products: 7,
+  },
+  social: {
+    github: 'vyuma',
+    facebook: 'profile.php?id=61568847274162',
+  },
+};

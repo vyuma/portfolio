@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import AchievementList from '../components/AchievementList.astro';
+import { achievements } from '../data/achievements';
+
+const totalCount = achievements.length;
+const awardCount = achievements.filter(a => a.results).length;
+const yearSpan = `${Math.min(...achievements.map(a => a.date.getFullYear()))}–${Math.max(...achievements.map(a => a.date.getFullYear()))}`;
+---
+<BaseLayout pageTitle="Achievements - vyuma" fullWidth>
+  <PageHero title="Achievements" subtitle="参加実績" />
+
+  {/* Summary pills */}
+  <div class="summary-bar">
+    <div class="summary-inner">
+      <div class="summary-pill">
+        <span class="summary-value">{totalCount}</span>
+        <span class="summary-label">イベント</span>
+      </div>
+      <div class="summary-dot" />
+      <div class="summary-pill">
+        <span class="summary-value">{awardCount}</span>
+        <span class="summary-label">受賞</span>
+      </div>
+      <div class="summary-dot" />
+      <div class="summary-pill">
+        <span class="summary-value">{yearSpan}</span>
+        <span class="summary-label">活動期間</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-container">
+    <AchievementList />
+  </div>
+</BaseLayout>
+
+<style>
+  .summary-bar {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto var(--space-2xl);
+    padding: 0 var(--space-md);
+  }
+
+  .summary-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    padding: var(--space-md) var(--space-xl);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .summary-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .summary-value {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .summary-label {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .summary-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-border);
+    flex-shrink: 0;
+  }
+
+  .page-container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md) var(--space-3xl);
+  }
+
+  @media (max-width: 480px) {
+    .summary-inner {
+      gap: var(--space-md);
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    .summary-value {
+      font-size: var(--text-lg);
+    }
+  }
+</style>

@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CareerTimeline from '../components/CareerTimeline.astro';
+---
+<BaseLayout pageTitle="Career - vyuma" fullWidth>
+  <PageHero title="Career" subtitle="経歴・役職" />
+  <div class="container">
+    <CareerTimeline />
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md) var(--space-3xl);
+  }
+</style>

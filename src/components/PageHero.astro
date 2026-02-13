@@ -1,0 +1,48 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <h1 class="page-hero-title">{title}</h1>
+    {subtitle && <p class="page-hero-subtitle">{subtitle}</p>}
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    text-align: center;
+    padding: var(--space-2xl) var(--space-md);
+    background: linear-gradient(135deg, rgba(47, 137, 241, 0.05) 0%, rgba(255, 151, 118, 0.08) 100%);
+    margin-bottom: var(--space-2xl);
+  }
+
+  :global(html.dark) .page-hero {
+    background: linear-gradient(135deg, rgba(47, 137, 241, 0.1) 0%, rgba(255, 151, 118, 0.06) 100%);
+  }
+
+  .page-hero-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .page-hero-title {
+    font-size: var(--text-2xl);
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+  }
+
+  .page-hero-subtitle {
+    color: var(--color-text-muted);
+    font-size: var(--text-lg);
+    margin: var(--space-sm) 0 0;
+  }
+</style>

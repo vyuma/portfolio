@@ -1,0 +1,18 @@
+---
+import CareerEntry from './CareerEntry.astro';
+import { careers } from '../data/career';
+
+const sortedCareers = [...careers].sort((a, b) => b.startDate.getTime() - a.startDate.getTime());
+---
+<div class="career-timeline">
+  {sortedCareers.map((entry, index) => (
+    <CareerEntry entry={entry} isLast={index === sortedCareers.length - 1} />
+  ))}
+</div>
+
+<style>
+  .career-timeline {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+</style>

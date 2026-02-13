@@ -1,66 +1,79 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { products } from '../data/products';
+import ProductCard from '../components/ProductCard.astro';
 
-const pageTitle = "Home";
-
-
-
-
-
-
+const featured = products.filter(p => p.awards.length > 0).slice(0, 3);
 ---
-<BaseLayout pageTitle={pageTitle}>
-    <h1> Who am I ?</h1>
-    <div class="my-profile">
-        <h1 class="my-name">vyuma</h1>
-        <div class="my-occupation">
-            <ul>
-                <li>名大計算生物物理学研究室</li>
-                <li>AIエンジニア</li>
-            </ul>
-            <ul>
-                <li>データサイエンティスト</li>
-                <li>Webエンジニア</li>
-            </ul>
-        </div> 
+<BaseLayout pageTitle="vyuma Portfolio" fullWidth>
+  <Hero />
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading title="代表プロダクト" />
+      <div class="featured-grid">
+        {featured.map(product => (
+          <ProductCard product={product} />
+        ))}
+      </div>
+      <div class="section-cta">
+        <a href="/products" class="view-all">すべてのプロダクトを見る →</a>
+      </div>
     </div>
-
-
-
+  </section>
 </BaseLayout>
 
-
 <style>
-    .my-profile {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-    .my-name {
-        color: rgb(186, 111, 32);
-        font-size: 4rem;
-    }
-    .my-occupation {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-    .my-occupation ul {
-        list-style-type: none;
-        padding: 0;
-        display: flex;
-        margin: 0;
+  .section {
+    padding: var(--space-3xl) 0;
+  }
 
-    }
-    .my-occupation li {
-        margin: 0.5rem;
-        font-size: 1.5rem;
-    }
-    .my-occupation li::before {
-        content: "👨‍💻";
-        margin-right: 0.5rem;
-    }
+  .container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
 
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  @media (min-width: 640px) {
+    .featured-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .featured-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .section-cta {
+    text-align: center;
+    margin-top: var(--space-xl);
+  }
+
+  .view-all {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    color: var(--color-primary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .view-all:hover {
+    border-color: var(--color-primary);
+    background-color: var(--color-primary);
+    color: #fff;
+  }
 </style>

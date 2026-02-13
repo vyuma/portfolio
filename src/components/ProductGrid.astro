@@ -1,0 +1,29 @@
+---
+import ProductCard from './ProductCard.astro';
+import { products } from '../data/products';
+---
+<div class="product-grid">
+  {products.map(product => (
+    <ProductCard product={product} />
+  ))}
+</div>
+
+<style>
+  .product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  @media (min-width: 640px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .product-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
