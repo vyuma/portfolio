@@ -16,7 +16,7 @@ export const foods: FoodPlace[] = [
     mapUrl:"https://maps.app.goo.gl/MQ7VNiN59XFxgdjK8?g_st=ic",
 
     imageUrl:"/food/IMG_4504.jpg",
-    rating: 3
+    rating: 4
   },
   {
     name:"ラーメン蘇我 西条店",
@@ -34,7 +34,7 @@ export const foods: FoodPlace[] = [
     comment:"つけ麺が美味しいお店、麺は太麺でコシがあり、スープは基本的に薄いが辛さを自分好みに調整できる。スープは辛さがかなり調整できる, 隣で20辛くらいのを食べていた人がいた",
     mapUrl:"https://maps.app.goo.gl/6cPj3K6MsDjmK6SL6?g_st=ic",
     imageUrl:"/food/IMG_4510.jpg",
-    rating:3.5
+    rating:3
   },
   {
     name:"カツ庵",
