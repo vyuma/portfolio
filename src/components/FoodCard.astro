@@ -6,6 +6,7 @@ interface Props {
 }
 
 const { food } = Astro.props;
+const rating = Math.max(0, Math.min(5, Math.round(food.rating ?? 0)));
 ---
 <div class="food-card">
   {food.imageUrl && (
@@ -18,6 +19,13 @@ const { food } = Astro.props;
       <h3 class="food-name">{food.name}</h3>
       <span class="food-category">{food.category}</span>
     </div>
+    {rating > 0 && (
+      <div class="food-rating" aria-label={`${rating}点（5点満点）`}>
+        {Array.from({ length: 5 }).map((_, i) => (
+          <span class={i < rating ? 'star filled' : 'star'}>&#9733;</span>
+        ))}
+      </div>
+    )}
     <p class="food-comment">{food.comment}</p>
     <div class="food-links">
       <a href={food.mapUrl} target="_blank" rel="noopener noreferrer" class="food-link">
@@ -83,6 +91,20 @@ const { food } = Astro.props;
     color: var(--color-text-muted);
     font-weight: 500;
     white-space: nowrap;
+  }
+
+  .food-rating {
+    display: flex;
+    gap: 2px;
+  }
+
+  .star {
+    font-size: var(--text-lg);
+    color: var(--color-border);
+  }
+
+  .star.filled {
+    color: #f59e0b;
   }
 
   .food-comment {
