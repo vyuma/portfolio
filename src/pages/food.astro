@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FoodCard from '../components/FoodCard.astro';
+import { foods } from '../data/foods';
+---
+<BaseLayout pageTitle="Food - vyuma" fullWidth>
+  <PageHero title="Food" subtitle="お気に入りのお店" />
+  <div class="container">
+    <div class="food-grid">
+      {foods.map(food => (
+        <FoodCard food={food} />
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md) var(--space-3xl);
+  }
+
+  .food-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  @media screen and (min-width: 640px) {
+    .food-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .food-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,143 @@
+---
+import type { FoodPlace } from '../data/foods';
+
+interface Props {
+  food: FoodPlace;
+}
+
+const { food } = Astro.props;
+const rating = Math.max(0, Math.min(5, Math.round(food.rating ?? 0)));
+---
+<div class="food-card">
+  {food.imageUrl && (
+    <div class="food-image">
+      <img src={food.imageUrl} alt={food.name} />
+    </div>
+  )}
+  <div class="food-body">
+    <div class="food-header">
+      <h3 class="food-name">{food.name}</h3>
+      <span class="food-category">{food.category}</span>
+    </div>
+    {rating > 0 && (
+      <div class="food-rating" aria-label={`${rating}点（5点満点）`}>
+        {Array.from({ length: 5 }).map((_, i) => (
+          <span class={i < rating ? 'star filled' : 'star'}>&#9733;</span>
+        ))}
+      </div>
+    )}
+    <p class="food-comment">{food.comment}</p>
+    <div class="food-links">
+      <a href={food.mapUrl} target="_blank" rel="noopener noreferrer" class="food-link">
+        Google Maps
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .food-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .food-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  .food-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .food-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+  }
+
+  .food-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .food-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .food-name {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .food-category {
+    padding: 2px 10px;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .food-rating {
+    display: flex;
+    gap: 2px;
+  }
+
+  .star {
+    font-size: var(--text-lg);
+    color: var(--color-border);
+  }
+
+  .star.filled {
+    color: #f59e0b;
+  }
+
+  .food-comment {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: var(--leading-normal);
+    flex: 1;
+  }
+
+  .food-links {
+    display: flex;
+    gap: var(--space-sm);
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .food-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+    padding: var(--space-xs) var(--space-md);
+    background-color: var(--color-primary);
+    color: #fff;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s;
+  }
+
+  .food-link:hover {
+    background-color: var(--color-primary-hover);
+    color: #fff;
+  }
+</style>
