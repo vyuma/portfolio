@@ -1,3 +1,5 @@
+import type { Tier } from './tiers';
+
 export interface Achievement {
   id: number;
   date: Date;
@@ -7,6 +9,8 @@ export interface Achievement {
   url: string[];
   tags: string[];
   results: string;
+  /** 実績の「すごさ」を表す TIER。tiers.ts 参照。results 欄をもとにした下書き値。 */
+  tier: Tier;
 }
 
 export const achievements: Achievement[] = [
@@ -20,6 +24,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['education'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 102,
@@ -30,6 +35,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community', 'leadership'],
     results: '',
+    tier: 'bronze',
   },
 
   // ===== 2023 =====
@@ -42,6 +48,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community', 'leadership'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 202,
@@ -52,6 +59,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community', 'education'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 1,
@@ -62,6 +70,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['hackathon', 'web'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 2,
@@ -72,6 +81,7 @@ export const achievements: Achievement[] = [
     url: ['https://github.com/jphacks/NG_2309'],
     tags: ['hackathon', 'web', 'AI'],
     results: 'HackDay BFTスポンサー賞をいただきました。',
+    tier: 'gold',
   },
 
   // ===== 2024 =====
@@ -84,6 +94,7 @@ export const achievements: Achievement[] = [
     url: ['https://100program.jp/'],
     tags: ['project', 'web'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 3,
@@ -94,6 +105,7 @@ export const achievements: Achievement[] = [
     url: ['https://100program.jp/'],
     tags: ['project', 'web'],
     results: '「学習アプリ〜教えて育てるポンコツAI受験生〜」と「習慣化促進のための時間記録デバイスと視覚化アプリケーション」を作成しファイナリストに選出されました。',
+    tier: 'silver',
   },
   {
     id: 302,
@@ -104,6 +116,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community', 'leadership'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 303,
@@ -114,6 +127,7 @@ export const achievements: Achievement[] = [
     url: ['https://deeplearning.jp/en/lectures/dlb2024/'],
     tags: ['learning', 'AI'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 304,
@@ -124,6 +138,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['award'],
     results: '採択されました',
+    tier: 'silver',
   },
   {
     id: 305,
@@ -134,6 +149,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['intern', 'AI'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 4,
@@ -144,6 +160,7 @@ export const achievements: Achievement[] = [
     url: ['https://jack-app.github.io/jackHack2024_C/public/'],
     tags: ['hackathon', 'web'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 5,
@@ -154,6 +171,7 @@ export const achievements: Achievement[] = [
     url: ['https://vyuma.github.io/sinken_suijyaku_js/', 'https://github.com/vyuma/sinken_suijyaku_js'],
     tags: ['hackathon', 'web'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 6,
@@ -164,6 +182,7 @@ export const achievements: Achievement[] = [
     url: ['https://si-fa.net/report/report2024/', 'https://si-fa.net/report-elements/report2024/20240025.pdf'],
     tags: ['project', 'web', 'AI'],
     results: 'サイエンスアゴラにてポスター発表と1分ピッチを行いました。',
+    tier: 'silver',
   },
   {
     id: 7,
@@ -174,6 +193,7 @@ export const achievements: Achievement[] = [
     url: ['https://ideastoa.aip.nagoya-u.ac.jp/jikken/project/project-4598/'],
     tags: ['project', 'web', 'AI'],
     results: '',
+    tier: 'silver',
   },
   {
     id: 8,
@@ -184,6 +204,7 @@ export const achievements: Achievement[] = [
     url: ['https://deeplearning.jp/en/lectures/dlb2024/'],
     tags: ['learning', 'AI'],
     results: '修了しました',
+    tier: 'silver',
   },
   {
     id: 9,
@@ -194,6 +215,7 @@ export const achievements: Achievement[] = [
     url: ['https://100program.jp/'],
     tags: ['project', 'web'],
     results: '学習を支援する心理学アプリケーションの実装を行いました。',
+    tier: 'bronze',
   },
   {
     id: 10,
@@ -204,6 +226,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community', 'leadership'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 11,
@@ -214,6 +237,7 @@ export const achievements: Achievement[] = [
     url: ['https://github.com/GitHub-Battle-Community/github-battle'],
     tags: ['hackathon', 'web'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 306,
@@ -224,6 +248,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['intern', 'hackathon'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 14,
@@ -234,6 +259,7 @@ export const achievements: Achievement[] = [
     url: ['https://weblab.t.u-tokyo.ac.jp/lecture/course-list/deep-generative-model/'],
     tags: ['learning', 'AI'],
     results: '修了しました',
+    tier: 'silver',
   },
   {
     id: 12,
@@ -244,6 +270,7 @@ export const achievements: Achievement[] = [
     url: ['https://www.nagoyatv.com/hackathon-electricsheep/', 'https://github.com/Shakenokirimi12/mobility-adventure'],
     tags: ['hackathon', 'web'],
     results: '優勝・プログラミング賞同時受賞！ SFプロトタイピング日本一の称号をいただきました！',
+    tier: 'diamond',
   },
   {
     id: 13,
@@ -254,6 +281,7 @@ export const achievements: Achievement[] = [
     url: ['https://careers.mercari.com/mercan/articles/46255/', 'https://github.com/vyuma/mercari-llm-hack-front', 'https://github.com/vyuma/mercari-llm-hack-back'],
     tags: ['hackathon', 'web', 'AI'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 15,
@@ -264,6 +292,7 @@ export const achievements: Achievement[] = [
     url: ['https://garage-nagoya.or.jp/event/p20101/'],
     tags: ['ideathon'],
     results: 'ガレージ賞をいただきました',
+    tier: 'gold',
   },
   {
     id: 307,
@@ -274,6 +303,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 308,
@@ -284,6 +314,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community', 'lecture'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 309,
@@ -294,6 +325,7 @@ export const achievements: Achievement[] = [
     url: ['https://techgala.jp/hackathon/'],
     tags: ['hackathon'],
     results: '',
+    tier: 'silver',
   },
   {
     id: 310,
@@ -304,6 +336,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community', 'AI', 'leadership'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 16,
@@ -314,6 +347,7 @@ export const achievements: Achievement[] = [
     url: ['https://garage-challengers-platform.my.canva.site/hack-the-nagoya-hp'],
     tags: ['hackathon', 'web'],
     results: '準優勝しました',
+    tier: 'platinum',
   },
 
   // ===== 2025 =====
@@ -326,6 +360,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community', 'leadership'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 18,
@@ -336,6 +371,7 @@ export const achievements: Achievement[] = [
     url: ['https://hacku.yahoo.co.jp/hacku2025_nagoya/', 'https://github.com/vyuma/physiquest_animation_generator'],
     tags: ['hackathon', 'web', 'AI'],
     results: '最優秀賞・Happy Hacking賞をいただきました',
+    tier: 'diamond',
   },
   {
     id: 19,
@@ -346,6 +382,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 20,
@@ -356,6 +393,7 @@ export const achievements: Achievement[] = [
     url: ['https://sites.google.com/view/sstb2025'],
     tags: ['learning', 'biology'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 402,
@@ -366,6 +404,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['hackathon'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 403,
@@ -376,6 +415,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['learning', 'AI'],
     results: '修了しました',
+    tier: 'silver',
   },
   {
     id: 21,
@@ -386,6 +426,7 @@ export const achievements: Achievement[] = [
     url: ['https://avilen.jp/'],
     tags: ['intern', 'AI'],
     results: '個人賞をいただきました',
+    tier: 'gold',
   },
   {
     id: 404,
@@ -396,6 +437,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 23,
@@ -406,6 +448,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['hackathon', 'web', 'AI'],
     results: '優秀賞をいただきました！',
+    tier: 'gold',
   },
   {
     id: 24,
@@ -416,6 +459,7 @@ export const achievements: Achievement[] = [
     url: ['https://100program.jp/'],
     tags: ['project', 'web', 'AI'],
     results: '「ハッカソン支援エージェント」を作成し「優秀AI賞」をいただきました！ Physiquestで「Social Impact賞」をいただきました！',
+    tier: 'platinum',
   },
   {
     id: 405,
@@ -426,6 +470,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['hackathon', 'web'],
     results: 'WIngArc1st企業賞を受賞しました！',
+    tier: 'gold',
   },
   {
     id: 406,
@@ -436,6 +481,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community', 'leadership'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 407,
@@ -446,6 +492,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['hackathon', 'web'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 408,
@@ -456,6 +503,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['education'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 409,
@@ -466,6 +514,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['hackathon', 'web'],
     results: '「日テレ賞」をいただきました！',
+    tier: 'gold',
   },
   {
     id: 410,
@@ -476,6 +525,7 @@ export const achievements: Achievement[] = [
     url: ['https://logipk.vercel.app/'],
     tags: ['hackathon', 'AI'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 411,
@@ -486,6 +536,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['hackathon', 'AI'],
     results: '優勝しました！',
+    tier: 'diamond',
   },
   {
     id: 412,
@@ -496,6 +547,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['project', 'startup'],
     results: '「SMBC日興証券賞」をいただきました！',
+    tier: 'gold',
   },
   {
     id: 413,
@@ -506,6 +558,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['learning', 'startup'],
     results: '修了しました',
+    tier: 'silver',
   },
   {
     id: 414,
@@ -516,6 +569,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['learning', 'startup'],
     results: '修了しました',
+    tier: 'silver',
   },
   {
     id: 415,
@@ -526,6 +580,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community', 'startup'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 416,
@@ -536,6 +591,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community', 'leadership'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 417,
@@ -546,6 +602,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['learning', 'startup'],
     results: '修了しました',
+    tier: 'silver',
   },
   {
     id: 418,
@@ -556,6 +613,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['education'],
     results: '合格しました',
+    tier: 'silver',
   },
   {
     id: 419,
@@ -566,6 +624,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['education'],
     results: '合格しました',
+    tier: 'silver',
   },
   {
     id: 420,
@@ -576,6 +635,7 @@ export const achievements: Achievement[] = [
     url: ['https://www.nagoyatv.com/hackathon-electricsheep/'],
     tags: ['hackathon', 'web'],
     results: 'デザイン賞を受賞！メーテレハッカソン二連覇！',
+    tier: 'diamond',
   },
   {
     id: 421,
@@ -586,6 +646,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['hackathon', 'web'],
     results: 'パソナ賞を受賞！Award Day進出！',
+    tier: 'gold',
   },
   {
     id: 422,
@@ -596,6 +657,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community', 'leadership'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 423,
@@ -606,6 +668,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['AI', 'community'],
     results: '',
+    tier: 'silver',
   },
   {
     id: 424,
@@ -616,6 +679,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['project', 'startup'],
     results: 'tongali優秀賞・海外チャレンジ賞・野村證券賞 3冠！',
+    tier: 'diamond',
   },
   {
     id: 425,
@@ -626,6 +690,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['hackathon', 'web'],
     results: '審査員特別賞 / JPHACKS innovator認定 / CyberAgent賞 / ハウテレビジョン賞 4冠！',
+    tier: 'diamond',
   },
   {
     id: 426,
@@ -636,6 +701,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['hackathon', 'AI'],
     results: '3位入賞！',
+    tier: 'platinum',
   },
   {
     id: 427,
@@ -646,6 +712,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['hackathon', 'web'],
     results: 'works human intelligence賞を受賞！',
+    tier: 'gold',
   },
   {
     id: 428,
@@ -656,6 +723,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['AI', 'community'],
     results: 'Weekly MVP選出！',
+    tier: 'platinum',
   },
   {
     id: 429,
@@ -666,6 +734,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['hackathon', 'web'],
     results: '決勝進出！',
+    tier: 'silver',
   },
   {
     id: 430,
@@ -676,6 +745,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 431,
@@ -686,6 +756,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community', 'lecture'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 432,
@@ -696,6 +767,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['hackathon', 'web'],
     results: 'あにます WIngArc1st賞・CARTA賞 / MRSTUDY WIngArc1st賞・サイバーエージェント賞 計4冠！',
+    tier: 'diamond',
   },
   {
     id: 433,
@@ -706,6 +778,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community', 'lecture'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 434,
@@ -716,6 +789,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['learning', 'startup'],
     results: '',
+    tier: 'bronze',
   },
 
   // ===== 2026 =====
@@ -728,6 +802,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community', 'startup'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 502,
@@ -738,6 +813,7 @@ export const achievements: Achievement[] = [
     url: ['https://luma.com/o0p8d6tz'],
     tags: ['lecture', 'AI'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 503,
@@ -748,6 +824,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['hackathon', 'web'],
     results: 'Physiquest DeNA賞・CARTA賞 2冠！',
+    tier: 'platinum',
   },
   {
     id: 504,
@@ -758,6 +835,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community', 'leadership'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 505,
@@ -768,6 +846,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['project', 'startup'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 506,
@@ -778,6 +857,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['community'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 507,
@@ -788,6 +868,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['learning', 'startup'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 508,
@@ -798,6 +879,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['learning', 'biology'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 509,
@@ -808,6 +890,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['education'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 510,
@@ -818,6 +901,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['project', 'startup'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 511,
@@ -828,6 +912,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['hackathon', 'leadership'],
     results: '',
+    tier: 'bronze',
   },
   {
     id: 512,
@@ -838,6 +923,7 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['award', 'education'],
     results: '総長顕彰を受賞！',
+    tier: 'diamond',
   },
   {
     id: 513,
@@ -848,5 +934,6 @@ export const achievements: Achievement[] = [
     url: [],
     tags: ['education'],
     results: '',
+    tier: 'bronze',
   },
 ];

@@ -1,0 +1,45 @@
+---
+import type { ContactLink } from '../data/contacts';
+
+interface Props {
+  contact: ContactLink;
+}
+
+const { contact } = Astro.props;
+---
+<a href={contact.url} target="_blank" rel="noopener noreferrer" class="contact-card">
+  <img src={contact.iconUrl} alt={contact.name} class="contact-icon" />
+  <span class="contact-name">{contact.name}</span>
+</a>
+
+<style>
+  .contact-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    text-decoration: none;
+    color: var(--color-text);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    color: var(--color-primary);
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+
+  .contact-name {
+    font-size: var(--text-lg);
+    font-weight: 600;
+  }
+</style>

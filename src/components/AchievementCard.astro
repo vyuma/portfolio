@@ -1,5 +1,7 @@
 ---
 import type { Achievement } from '../data/achievements';
+import { getTier } from '../data/tiers';
+import TierBadge from './TierBadge.astro';
 
 interface Props {
   achievement: Achievement;
@@ -10,6 +12,7 @@ const { achievement, delay = 0 } = Astro.props;
 
 const hasAward = !!achievement.results;
 const dateStr = `${achievement.date.getFullYear()}/${String(achievement.date.getMonth() + 1).padStart(2, '0')}`;
+const tier = getTier(achievement.tier);
 
 const tagColors: Record<string, string> = {
   hackathon: '#3b82f6',
@@ -29,9 +32,13 @@ const tagColors: Record<string, string> = {
 };
 ---
 <article
-  class:list={['card', { 'card--awarded': hasAward }]}
-  style={`--delay: ${delay}ms`}
+  class="card"
+  data-tier={tier.id}
+  style={`--delay: ${delay}ms; --tier-grad: ${tier.gradient}; --tier-accent: ${tier.accent}; --tier-glow: ${tier.glow}; --tier-text: ${tier.text}; --tier-text-shadow: ${tier.textShadow}`}
 >
+  {/* TIER tag — refined gem, rests on the top edge */}
+  <TierBadge tier={achievement.tier} />
+
   <div class="card-inner">
     {/* Meta row */}
     <div class="card-meta">
@@ -65,19 +72,13 @@ const tagColors: Record<string, string> = {
       </div>
     )}
 
-    {/* Award */}
+    {/* Result — TIER-colored banner, no emoji */}
     {hasAward && (
       <div class="award">
-        <div class="award-bg" />
-        <div class="award-content">
-          <div class="award-trophy">🏆</div>
-          <div class="award-body">
-            <span class="award-text">{achievement.results}</span>
-          </div>
+        <div class="award-inner">
+          <span class="award-tier">{tier.label}</span>
+          <p class="award-text">{achievement.results}</p>
         </div>
-        <div class="award-sparkle award-sparkle--1" />
-        <div class="award-sparkle award-sparkle--2" />
-        <div class="award-sparkle award-sparkle--3" />
       </div>
     )}
   </div>
@@ -92,42 +93,70 @@ const tagColors: Record<string, string> = {
     box-sizing: border-box;
     border-radius: var(--radius-xl);
     background-color: var(--color-bg);
-    border: 1px solid var(--color-border);
-    overflow: hidden;
 
-    /* scroll animation */
+    /* scroll-in animation */
     opacity: 0;
     transform: translateY(20px);
     transition:
-      opacity 0.5s ease var(--delay, 0ms),
-      transform 0.5s ease var(--delay, 0ms),
-      box-shadow var(--transition-base),
-      border-color var(--transition-base);
+      opacity 0.55s ease var(--delay, 0ms),
+      transform 0.55s ease var(--delay, 0ms),
+      box-shadow var(--transition-base);
+  }
+
+  /* TIER gradient frame (the colored 枠) — thin & refined */
+  .card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: var(--tier-grad);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
   }
 
   .card.is-visible {
     opacity: 1;
     transform: translateY(0);
+    box-shadow: var(--shadow-sm);
   }
 
   .card.is-visible:hover {
     transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 14px 30px -12px var(--tier-glow), var(--shadow-lg);
   }
 
-  /* Awarded card glow */
-  .card--awarded {
-    border-color: rgba(251, 191, 36, 0.35);
-    box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.08);
+  /* Diamond — the only tier with motion: a slow holographic frame + soft glow */
+  .card[data-tier='diamond']::after {
+    padding: 2px;
+    background-size: 220% 220%;
+    animation: frameFlow 7s ease infinite;
   }
 
-  .card--awarded.is-visible:hover {
-    border-color: rgba(251, 191, 36, 0.6);
-    box-shadow: 0 8px 24px -4px rgba(251, 191, 36, 0.15), var(--shadow-lg);
+  .card[data-tier='diamond'].is-visible {
+    box-shadow: 0 6px 22px -10px var(--tier-glow);
+  }
+
+  .card[data-tier='diamond'].is-visible:hover {
+    box-shadow: 0 16px 36px -10px var(--tier-glow), var(--shadow-lg);
+  }
+
+  @keyframes frameFlow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
   }
 
   /* ========== Inner ========== */
   .card-inner {
+    position: relative;
+    z-index: 1;
     padding: var(--space-lg) var(--space-xl);
     display: flex;
     flex-direction: column;
@@ -231,106 +260,69 @@ const tagColors: Record<string, string> = {
   }
 
   /* ==============================================
-     AWARD - Pop & Vibrant
+     RESULT — TIER-colored banner (no emoji)
      ============================================== */
   .award {
     position: relative;
     margin-top: var(--space-md);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    isolation: isolate;
+    background: var(--tier-grad);
+    background-size: 240% 240%;
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.28),
+      0 6px 18px -10px var(--tier-glow);
   }
 
-  /* Colorful gradient background */
-  .award-bg {
+  /* glassy sheen for depth */
+  .award::before {
+    content: '';
     position: absolute;
     inset: 0;
-    background:
-      linear-gradient(135deg, #fbbf24 0%, #f59e0b 25%, #f97316 50%, #fbbf24 75%, #eab308 100%);
-    background-size: 300% 300%;
-    animation: awardGradient 6s ease infinite;
-    z-index: 0;
-  }
-
-  @keyframes awardGradient {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-
-  .award-content {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-    padding: var(--space-md) var(--space-lg);
-  }
-
-  /* Trophy */
-  .award-trophy {
-    font-size: 2rem;
-    line-height: 1;
-    flex-shrink: 0;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-    animation: trophyBounce 2s ease-in-out infinite;
-  }
-
-  @keyframes trophyBounce {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-3px) scale(1.05); }
-  }
-
-  .award-body {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .award-text {
-    font-size: var(--text-sm);
-    font-weight: 800;
-    line-height: var(--leading-snug);
-    color: #1c1917;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
-  }
-
-  /* Sparkle particles */
-  .award-sparkle {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    border-radius: var(--radius-full);
-    background: #fff;
-    opacity: 0;
-    z-index: 3;
-    animation: sparkle 3s ease-in-out infinite;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.34) 0%,
+      rgba(255, 255, 255, 0) 46%,
+      rgba(0, 0, 0, 0.07) 100%
+    );
     pointer-events: none;
   }
 
-  .award-sparkle--1 {
-    top: 20%;
-    right: 12%;
-    animation-delay: 0s;
+  .award-inner {
+    position: relative;
+    padding: var(--space-md) var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
   }
 
-  .award-sparkle--2 {
-    top: 60%;
-    right: 25%;
-    animation-delay: 1s;
-    width: 4px;
-    height: 4px;
+  /* small eyebrow showing the TIER */
+  .award-tier {
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    color: var(--tier-text);
+    opacity: 0.62;
   }
 
-  .award-sparkle--3 {
-    top: 30%;
-    right: 40%;
-    animation-delay: 2s;
-    width: 5px;
-    height: 5px;
+  .award-text {
+    margin: 0;
+    max-width: none;
+    font-size: var(--text-sm);
+    font-weight: 800;
+    line-height: var(--leading-snug);
+    color: var(--tier-text);
+    text-shadow: var(--tier-text-shadow);
   }
 
-  @keyframes sparkle {
-    0%, 100% { opacity: 0; transform: scale(0); }
-    50% { opacity: 0.9; transform: scale(1); }
+  /* Diamond — gently drifting holographic banner */
+  .card[data-tier='diamond'] .award {
+    animation: awardFlow 9s ease infinite;
+  }
+
+  @keyframes awardFlow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
   }
 
   /* ========== Responsive ========== */
@@ -339,13 +331,16 @@ const tagColors: Record<string, string> = {
       padding: var(--space-md);
     }
 
-    .award-content {
+    .award-inner {
       padding: var(--space-sm) var(--space-md);
-      gap: var(--space-sm);
     }
+  }
 
-    .award-trophy {
-      font-size: 1.5rem;
+  /* ========== Reduced motion ========== */
+  @media (prefers-reduced-motion: reduce) {
+    .card[data-tier='diamond']::after,
+    .card[data-tier='diamond'] .award {
+      animation: none;
     }
   }
 </style>

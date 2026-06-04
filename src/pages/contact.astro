@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ContactCard from '../components/ContactCard.astro';
+import { contacts } from '../data/contacts';
+---
+<BaseLayout pageTitle="Contact - vyuma" fullWidth>
+  <PageHero title="Contact" subtitle="連絡先・SNS" />
+  <div class="container">
+    <div class="contact-grid">
+      {contacts.map(contact => (
+        <ContactCard contact={contact} />
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md) var(--space-3xl);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  @media screen and (min-width: 640px) {
+    .contact-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .contact-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
