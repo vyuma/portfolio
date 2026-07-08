@@ -8,7 +8,7 @@ export const profile = {
     'Webエンジニア',
     'データサイエンティスト',
   ],
-  badges: ['Gemini公式学生アンバサダー', 'JPHACKS innovator', '100program メンター'],
+  badges: ['未踏アドバンスト採択', 'Google AI公式学生アンバサダー', 'JPHACKS innovator', '100program メンター'],
   bio: '読書500冊以上。ゲーミフィケーションとAIを組み合わせた開発が得意。ハッカソンでの優勝経験多数。学術サーバー・全国自主ゼミサークルの創設者。機械学習分野で実務経験あり。',
   interests: [
     '機械学習', '人工知能', '哲学', '教育理論', '勉強法',
@@ -32,8 +32,8 @@ export const profile = {
     'Airport（OICX）',
   ],
   stats: {
-    hackathonWins: 5,
-    totalAwards: 35,
+    hackathonWins: 6,
+    totalAwards: 36,
     products: 7,
   },
   social: {

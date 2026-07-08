@@ -15,14 +15,38 @@ const { title, subtitle } = Astro.props;
 
 <style>
   .page-hero {
+    position: relative;
     text-align: center;
-    padding: var(--space-2xl) var(--space-md);
-    background: linear-gradient(135deg, rgba(47, 137, 241, 0.05) 0%, rgba(255, 151, 118, 0.08) 100%);
+    padding: var(--space-2xl) var(--space-md) calc(var(--space-2xl) + var(--space-sm));
     margin-bottom: var(--space-2xl);
+    overflow: hidden;
+    isolation: isolate;
   }
 
-  :global(html.dark) .page-hero {
-    background: linear-gradient(135deg, rgba(47, 137, 241, 0.1) 0%, rgba(255, 151, 118, 0.06) 100%);
+  .page-hero::before,
+  .page-hero::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .page-hero::before {
+    width: 360px;
+    height: 360px;
+    top: -160px;
+    right: 12%;
+    background: color-mix(in srgb, var(--color-primary) 13%, transparent);
+  }
+
+  .page-hero::after {
+    width: 300px;
+    height: 300px;
+    bottom: -140px;
+    left: 10%;
+    background: color-mix(in srgb, var(--color-accent) 11%, transparent);
   }
 
   .page-hero-inner {
@@ -31,18 +55,34 @@ const { title, subtitle } = Astro.props;
   }
 
   .page-hero-title {
-    font-size: var(--text-2xl);
+    display: inline-block;
+    position: relative;
+    font-size: var(--text-3xl);
     font-weight: 800;
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+    letter-spacing: -0.02em;
+    background: var(--gradient-brand);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin: 0;
+    padding-bottom: var(--space-sm);
+  }
+
+  .page-hero-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 4px;
+    border-radius: var(--radius-full);
+    background: var(--gradient-brand);
   }
 
   .page-hero-subtitle {
     color: var(--color-text-muted);
     font-size: var(--text-lg);
-    margin: var(--space-sm) 0 0;
+    margin: var(--space-sm) auto 0;
   }
 </style>
