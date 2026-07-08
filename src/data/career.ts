@@ -49,6 +49,13 @@ export const careers: CareerEntry[] = [
     description: '医学系研究科修士課程に進学',
     category: 'education',
   },
+  {
+    startDate: new Date(2026, 4),
+    title: 'CIBoG卓越大学院プログラム 採択',
+    organization: '名古屋大学',
+    description: '卓越大学院プログラムCIBoGに採択',
+    category: 'education',
+  },
 
   // ===== Roles & Organizations =====
   {
@@ -111,9 +118,15 @@ export const careers: CareerEntry[] = [
   },
   {
     startDate: new Date(2025, 9),
-    title: 'Gemini公式学生アンバサダー 就任',
+    title: 'Google AI 公式学生アンバサダー 就任',
     organization: 'Google',
-    description: 'Google Gemini APIの公式学生アンバサダーに選出',
+    description: 'Google AI学生アンバサダープログラムに採択。Weekly MVP・Campus MVPに選出',
+    category: 'role',
+  },
+  {
+    startDate: new Date(2026, 6),
+    title: '学生アイディアファクトリー サマーキャンプ 実行委員',
+    organization: '学生アイディアファクトリー',
     category: 'role',
   },
 
@@ -136,6 +149,12 @@ export const careers: CareerEntry[] = [
     title: 'AVILEN 1週間インターン 個人賞受賞',
     organization: 'AVILEN',
     description: 'AIコンサルタント業務を経験し個人賞を受賞',
+    category: 'intern',
+  },
+  {
+    startDate: new Date(2026, 5),
+    title: 'GA Technology 1dayインターン',
+    organization: 'GA Technology',
     category: 'intern',
   },
 
@@ -183,6 +202,19 @@ export const careers: CareerEntry[] = [
     organization: 'Aichi Startup Battle',
     category: 'certification',
   },
+  {
+    startDate: new Date(2026, 2),
+    title: '高等学校教諭一種免許状 取得',
+    organization: '名古屋大学',
+    description: '教職課程を修了し免許状を取得',
+    category: 'certification',
+  },
+  {
+    startDate: new Date(2026, 5),
+    title: 'JStarX スタンフォードコース 国内プログラム採択',
+    organization: 'JStarX',
+    category: 'certification',
+  },
 
   // ===== Major Awards =====
   {
@@ -211,6 +243,26 @@ export const careers: CareerEntry[] = [
     title: 'Tongali アイディアピッチ2025 決勝 3冠',
     organization: 'Tongali',
     description: 'tongali優秀賞・海外チャレンジ賞・野村證券賞の3冠',
+    category: 'award',
+  },
+  {
+    startDate: new Date(2026, 4),
+    title: 'Hack1グランプリ 最優秀賞・オーディエンス賞 2冠',
+    organization: 'Hack1グランプリ',
+    category: 'award',
+  },
+  {
+    startDate: new Date(2026, 5),
+    title: '未踏アドバンスト 採択',
+    organization: 'IPA（情報処理推進機構）',
+    description: '書面審査・二次面接を経て未踏アドバンスト事業に採択',
+    category: 'award',
+  },
+  {
+    startDate: new Date(2026, 6),
+    title: 'IVS SPIKATHON 優勝',
+    organization: 'IVS',
+    description: 'IVS 2026にてSPIKATHON優勝',
     category: 'award',
   },
 ];
