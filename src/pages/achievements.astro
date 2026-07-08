@@ -11,37 +11,42 @@ const yearSpan = `${Math.min(...achievements.map(a => a.date.getFullYear()))}–
 <BaseLayout pageTitle="Achievements - vyuma" fullWidth>
   <PageHero title="Achievements" subtitle="参加実績" />
 
-  {/* Summary pills */}
-  <div class="summary-bar">
-    <div class="summary-inner">
-      <div class="summary-pill">
-        <span class="summary-value">{totalCount}</span>
-        <span class="summary-label">イベント</span>
-      </div>
-      <div class="summary-dot" />
-      <div class="summary-pill">
-        <span class="summary-value">{awardCount}</span>
-        <span class="summary-label">受賞</span>
-      </div>
-      <div class="summary-dot" />
-      <div class="summary-pill">
-        <span class="summary-value">{yearSpan}</span>
-        <span class="summary-label">活動期間</span>
+  <div class="page-container">
+    {/* Summary */}
+    <div class="summary-bar">
+      <div class="summary-inner">
+        <div class="summary-pill">
+          <span class="summary-value">{totalCount}</span>
+          <span class="summary-label">イベント</span>
+        </div>
+        <div class="summary-dot" />
+        <div class="summary-pill">
+          <span class="summary-value">{awardCount}</span>
+          <span class="summary-label">受賞</span>
+        </div>
+        <div class="summary-dot" />
+        <div class="summary-pill">
+          <span class="summary-value">{yearSpan}</span>
+          <span class="summary-label">活動期間</span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="page-container">
     <AchievementList />
   </div>
 </BaseLayout>
 
 <style>
-  .summary-bar {
+  .page-container {
     width: 100%;
-    max-width: var(--max-width);
-    margin: 0 auto var(--space-2xl);
-    padding: 0 var(--space-md);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--space-md) var(--space-3xl);
+  }
+
+  /* ===== Summary ===== */
+  .summary-bar {
+    margin: 0 auto var(--space-xl);
   }
 
   .summary-inner {
@@ -50,12 +55,9 @@ const yearSpan = `${Math.min(...achievements.map(a => a.date.getFullYear()))}–
     justify-content: center;
     gap: var(--space-lg);
     padding: var(--space-md) var(--space-xl);
-    background-color: color-mix(in srgb, var(--color-surface) 70%, transparent);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    background-color: var(--color-bg);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius-lg);
   }
 
   .summary-pill {
@@ -66,16 +68,20 @@ const yearSpan = `${Math.min(...achievements.map(a => a.date.getFullYear()))}–
   }
 
   .summary-value {
+    font-family: var(--font-display);
     font-size: var(--text-xl);
-    font-weight: 800;
-    color: var(--color-primary);
+    font-weight: 700;
+    color: var(--color-text);
     line-height: 1;
+    font-variant-numeric: tabular-nums;
   }
 
   .summary-label {
+    font-family: var(--font-mono);
     font-size: var(--text-xs);
-    color: var(--color-text-muted);
+    color: var(--color-text-light);
     font-weight: 500;
+    letter-spacing: 0.06em;
   }
 
   .summary-dot {
@@ -84,13 +90,6 @@ const yearSpan = `${Math.min(...achievements.map(a => a.date.getFullYear()))}–
     border-radius: var(--radius-full);
     background-color: var(--color-border);
     flex-shrink: 0;
-  }
-
-  .page-container {
-    width: 100%;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 var(--space-md) var(--space-3xl);
   }
 
   @media (max-width: 480px) {

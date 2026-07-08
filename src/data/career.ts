@@ -82,6 +82,7 @@ export const careers: CareerEntry[] = [
   },
   {
     startDate: new Date(2024, 3),
+    endDate: new Date(2025, 2),
     title: 'jack アドバイス係',
     organization: 'jack',
     description: '名大アプリ開発団体jackのアドバイス係に就任',

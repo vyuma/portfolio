@@ -1,50 +1,82 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
+import { getCollection } from 'astro:content';
 
-const allPosts = Object.values(import.meta.glob('../posts/*.md', { eager: true })) as any[];
-const tags = [...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat())];
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+const tagCounts = new Map<string, number>();
+for (const post of posts) {
+  for (const tag of post.data.tags) {
+    tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
+  }
+}
+const tags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]);
 ---
 <BaseLayout pageTitle="Tags - vyuma" fullWidth>
   <PageHero title="Tags" subtitle="タグ一覧" />
-  <div class="container">
-    <div class="tags">
-      {tags.map((tag) => (
-        <a href={`/tags/${tag}`} class="tag">{tag}</a>
-      ))}
-    </div>
+  <div class="page-container">
+    {tags.length === 0 ? (
+      <p class="empty">まだタグがありません。</p>
+    ) : (
+      <div class="tags">
+        {tags.map(([tag, count]) => (
+          <a href={`/tags/${tag}`} class="tag">
+            #{tag}
+            <span class="tag-count">{count}</span>
+          </a>
+        ))}
+      </div>
+    )}
   </div>
 </BaseLayout>
 
 <style>
-  .container {
-    max-width: var(--max-width);
+  .page-container {
+    width: 100%;
+    max-width: 800px;
     margin: 0 auto;
     padding: 0 var(--space-md) var(--space-3xl);
+  }
+
+  .empty {
+    text-align: center;
+    color: var(--color-text-muted);
+    padding: var(--space-2xl) 0;
+    max-width: none;
   }
 
   .tags {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: var(--space-sm);
   }
 
   .tag {
-    display: inline-block;
-    padding: var(--space-sm) var(--space-md);
-    background-color: var(--color-surface);
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-sm);
+    padding: var(--space-xs) var(--space-md);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-full);
     font-size: var(--text-sm);
     font-weight: 500;
     color: var(--color-text);
     text-decoration: none;
-    transition: all 0.2s;
+    transition: border-color var(--transition-fast), background-color var(--transition-fast);
   }
 
   .tag:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
-    transform: translateY(-1px);
+    background-color: var(--color-surface);
+    border-color: color-mix(in srgb, var(--color-text) 25%, var(--color-border));
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .tag-count {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-text-light);
+    font-variant-numeric: tabular-nums;
   }
 </style>
